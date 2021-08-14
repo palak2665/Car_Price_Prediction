@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Prediction</title>
+</head>
+<body>
+<div class="warpper fl" style="background-image: url(carpic.jpg);">
+    <div class="main"style="background-image: url(carpic.jpg);">
+            <div class="head">
+<p>Predictive analysis</p>
+</div>
+<div class="form fl">
+<form action="{{ url_for('predict')}}" method="POST">
+                    <p class="name">
+                        Year: </p>
+<p>
+<input type="number" class="name-inp" id="first" name="Year" type="number "></p>
+<p class="name">
+    What is the Showroom Price?(In lakhs): </p>
+<p>
+<input type="text" class="name-inp" id="second" name="Present_Price" required="required"></P>
+                    <p class="name">
+                        How Many Kilometers Drived? </p>
+<p>
+<input type="text" class="name-inp"id="third" name="Kms_Driven" required="required"></p>
+<p class="name">
+    How much owners previously had the car(0 or 1 or 3) ? </P>
+                    <p>
+<input type="text" id="fourth" name="Owner" required="required" class="name-inp"></p>
+<p class="gender">What Is the Fuel type?
+<select class="gen"name="Fuel_Type_Petrol" id="fuel" required="required">
+<option value="Petrol">Petrol</option>
+<option value="Diesel">Diesel</option>
+<option value="CNG">CNG</option></select>
+                    </p>
+<p class="gender">Are you A Dealer or Individual?
+<select class="gen" name="Seller_Type_Individual" id="resea" required="required">
+<option value="Dealer">Dealer</option>
+<option value="Individual">Individual</option>
+</select>
+</p>               
+<p class="gender">
+    Transmission Mode
+<select class="gen" name="Transmission_Mannual" id="research" required="required">Transmission type
+<option value="Mannual">Manual</option>
+<option value="Automatic">Automatic</option>
+</select>
+</p>     
+<p>
+<input type="submit"id="sub" name="sb" value="SUBMIT" class="sub"></p>
+</form>
+<h3 class="ans">{{ prediction_text }}</h3>
+</div>
+</div>
+</div>
+
+
+
+<style>
+body {
+    background-color:burlywood;
+            
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.fl{
+    float: left;
+}
+.warpper{
+    width: 100%;
+    height: 100vh;
+    
+}
+.ans{
+    margin: 5% 0 0 5%;
+    color:whitesmoke;
+}
+.main{
+    width: 30%;
+    height: 680px;
+    background-color: rgba(90, 189, 202, 0.63);
+    margin: 25px 35%;
+    border-radius: 20px 20px 30px 30px;
+}
+.head{
+    width: 100%;
+    background-color: #192d70;
+    height: 40px;
+    border-radius: 20px 20px 0 0;
+}
+.head p{
+    line-height: 40px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: #fff;
+}
+.form{
+    width: 100%;
+    height: 500px;
+}
+.name{
+    font-size: 16px;
+    color: #fff;
+    margin: 15px 0 0 5%;
+}
+.name-inp{
+    width: 90%;
+    height: 30px;
+    margin: 5px 0 0 5%;
+    font-size: 16px;
+    padding: 2px;
+    color: rgb(114, 111, 111);
+    border: 1px solid rgb(17, 67, 107);
+    background-color: rgb(231, 232, 250);
+}
+.name-inp:hover{
+    background-color: rgb(0, 23, 41);
+    color: rgb(173, 167, 167);
+    border: 1px solid rgb(139, 139, 139);
+}
+.pass{
+    margin: 5px 0 0 5%;
+    height: 30px;
+    width: 41%;
+    padding: 2px;
+    background-color: rgb(231, 232, 250);
+    border: 1px solid rgb(17, 67, 107);
+}
+.pass:hover{
+    background-color: rgb(0, 23, 41);
+    color: rgb(173, 167, 167);
+    border: 1px solid rgb(139, 139, 139);
+}
+.gender{
+    margin: 15px 0 0 5%;
+    color: #fff;
+    font-size: 16px;
+}
+.gen{
+    width: 95%;
+    height: 30px;
+    margin: 3% 0 0 ;
+    font-size: 16px;
+    padding: 2px;
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(17, 67, 107);
+    background-color: rgb(231, 232, 250);}
+.genm{
+    margin-left: 5%;
+}
+.sub{
+    width: 90%;
+    margin: 20px 0 0 5%;
+    font-size: 16px;
+    height: 40px;
+    background-color: #031c30;
+    border: 1px solid rgb(17, 67, 107);
+    color: #fff;
+}
+.sub:hover{
+    background-color: #E94601;
+    color: #fff;
+}
+
+</style>
+</body>
+</html>
